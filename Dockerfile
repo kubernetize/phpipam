@@ -20,4 +20,9 @@ RUN mkdir -p /var/www/html && \
     echo "getenv('IPAM_TIMEZONE') ? date_default_timezone_set(getenv('IPAM_TIMEZONE')) : false;" >> /var/www/html/config.php && \
     find /var/www/html -name upload -type d -print0 | xargs -r0 chown apache
 
+# Install phpIPAM composer dependencies (radius, webauthn)
+RUN cd /var/www/html/functions && \
+    COMPOSER_ALLOW_SUPERUSER=1 php composer.phar install \
+        --no-dev --no-interaction --no-progress --prefer-dist
+
 USER 8080
