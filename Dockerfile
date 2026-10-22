@@ -1,4 +1,4 @@
-FROM ghcr.io/rkojedzinszky/webhost-images/php83 AS base
+FROM ghcr.io/rkojedzinszky/webhost-images/php84 AS base
 
 LABEL maintainer="Richard Kojedzinszky <richard@kojedz.in>"
 
